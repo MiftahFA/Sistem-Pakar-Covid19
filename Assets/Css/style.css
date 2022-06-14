@@ -1,0 +1,724 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --green: #19ce67;
+    --blue: #0d253f;
+    --text-color: #505050;
+    --primary-color: #f4f9fd;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    position: relative;
+    width: 100%;
+}
+
+.navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--green);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active {
+    width: 60px;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+
+.navigation ul li:hover {
+    background: var(--blue);
+}
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 20px;
+}
+
+.navigation ul li:nth-child(1):hover {
+    background: transparent;
+
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.navigation ul li a .icon .fas {
+    color: white;
+    font-size: 24px;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 5px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: #f5f5f5;
+    transition: 0.5s;
+}
+
+.main.active {
+    width: calc(100% - 60px);
+    left: 60px;
+}
+
+.main .topbar {
+    width: 100%;
+    background: white;
+    height: 60px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.toggle::before {
+    content: '\f0c9';
+    font-family: FontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    font-size: 24px;
+    text-align: center;
+    color: #111;
+}
+
+.toggle.active::before {
+    content: '\f00d';
+}
+
+.user {
+    position: relative;
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.cardBox .card {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.cardBox .card .numbers {
+    position: relative;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.cardBox .card .cardName {
+    color: #999;
+}
+
+.cardBox .card .iconBox {
+    font-size: 2.5em;
+    color: var(--green);
+}
+
+.details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+    display: grid;
+}
+
+.details .datatable table .edit,
+.details .datatable table .hapus,
+.details .datatable table .detail {
+    color: var(--green);
+    margin-right: 5px;
+}
+
+.details-2 {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+}
+
+.details-2 .datatable table .edit,
+.details-2 .datatable table .hapus {
+    color: var(--green);
+    margin-right: 5px;
+}
+
+.datatable {
+    position: relative;
+    display: grid;
+    background: #fff;
+    padding: 20px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardHeader h2 {
+    font-weight: 600;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+.btn {
+    position: relative;
+    padding: 6px 10px;
+    background: var(--green);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.btn:hover {
+    background: var(--blue);
+}
+
+.details table {
+    width: 100%;
+    margin: 0;
+}
+
+.details-2 table,
+.modal-body table {
+    width: 100%;
+    margin: 0;
+}
+
+.details .datatable table tbody tr:hover {
+    background: var(--blue);
+    color: #fff;
+}
+
+.details .datatable table thead tr {
+    text-align: center;
+}
+
+.details .datatable table tbody tr {
+    text-align: justify;
+}
+
+.details .datatable table tbody tr td:nth-child(1),
+.details .datatable table tbody tr td:nth-child(2),
+.details .datatable table tbody tr td:nth-child(4),
+.details .datatable table tbody tr td:last-child {
+    text-align: center;
+}
+
+.details-2 .datatable table tbody tr:hover {
+    background: var(--blue);
+    color: #fff;
+}
+
+.details-2 .datatable table thead tr {
+    text-align: center;
+}
+
+.details-2 .datatable table tbody tr {
+    text-align: justify;
+}
+
+.details-2 .datatable table tbody tr td:nth-child(1),
+.details-2 .datatable table tbody tr td:nth-child(5),
+.details-2 .datatable table tbody tr td:last-child {
+    text-align: center;
+}
+
+/* .details .datatable table tr td{
+    padding: 9px 5px;
+} */
+
+/* Modal */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+
+}
+
+.modal-header {
+    padding: 5px 16px;
+    background-color: var(--green);
+    color: white;
+}
+
+.modal-body {
+    padding: 5px 16px;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 2% auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.5s;
+}
+
+.modal-footer {
+    padding: 5px 16px;
+    background-color: white;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* .modal-content form{
+    margin-top: -30px;
+} */
+
+.modal-content form .data {
+    height: 35px;
+    width: 100%;
+    margin-bottom: 35px;
+    margin-top: 10px;
+    display: block;
+}
+
+.modal-content form .data-area {
+    width: 100%;
+    margin-bottom: 15px;
+    display: block;
+}
+
+form .data label,
+form .data-area label {
+    font-size: 18px;
+    color: #757575;
+}
+
+form .data input {
+    height: 100%;
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 1px solid #d5dbd9;
+    border-radius: 3px;
+    outline: none;
+}
+
+form .data-area textarea {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 1px solid #d5dbd9;
+    border-radius: 3px;
+    height: 125px;
+    resize: none;
+    outline: none;
+}
+
+
+form .data select {
+    height: 100%;
+    width: 100%;
+    padding: 0px 10px;
+    border: 0px;
+    font-size: 15px;
+    border: 1px solid #d5dbd9;
+    border-radius: 3px;
+    outline: none;
+}
+
+
+form .data input:focus,
+form .data-area textarea:focus,
+form .data select:focus {
+    border: 1px solid var(--green);
+}
+
+form .btn {
+    position: relative;
+    margin: 5px 0;
+    cursor: pointer;
+    padding: 4px 10px;
+    background: var(--green);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+
+}
+
+/* Alert */
+.alert {
+    background: #c2f3d6;
+    padding: 20px 40px;
+    min-width: 420px;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    top: 10px;
+    border-radius: 4px;
+    border-left: 5px solid #30d373;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.alert.showAlert {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.alert.show {
+    animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+    0% {
+        transform: translateX(100%);
+    }
+
+    40% {
+        transform: translateX(-10%);
+    }
+
+    80% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-10px);
+    }
+}
+
+.alert.hide {
+    animation: hide_slide 1s ease forwards;
+}
+
+@keyframes hide_slide {
+    0% {
+        transform: translateX(-10px);
+    }
+
+    40% {
+        transform: translateX(0%);
+    }
+
+    80% {
+        transform: translateX(-10%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.alert .fa-check-circle {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #21af5d;
+    font-size: 30px;
+}
+
+.alert .fa-times-circle {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #f84858;
+    font-size: 30px;
+}
+
+.alert .msg {
+    padding: 0 20px;
+    font-size: 18px;
+    color: #5db386;
+}
+
+
+.alert .close-btn {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #5ab886;
+    padding: 20px 18px;
+    cursor: pointer;
+}
+
+.alert .close-btn:hover {
+    background: #27ad5f;
+}
+
+/* .alert .close-btn2:hover {
+    background: #ff99a4;
+} */
+
+.alert .close-btn .fas {
+    color: #96eab8;
+    font-size: 22px;
+    line-height: 40px;
+}
+
+/* Membuat responsive */
+@media (max-width: 992px) {
+    .navigation {
+        left: -300px;
+    }
+
+    .navigation.active {
+        left: 0;
+        width: 300px;
+    }
+
+    .main {
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active {
+        width: calc(100% - 300px);
+        left: 300px;
+    }
+
+    .cardBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-content {
+        width: 60%;
+    }
+}
+
+@media (max-width: 758px) {
+
+    .details,
+    .details-2 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .cardHeader h2 {
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .modal-content {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardBox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .details .datatable,
+    .details-2 .datatable {
+        overflow-x: auto;
+    }
+
+    .details .datatable table,
+    .details-2 .datatable table {
+        width: 600px;
+    }
+
+    .navigation {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .navigation.active {
+        width: 100%;
+        left: 0;
+    }
+
+    .toggle.active {
+        position: fixed;
+        z-index: 10000;
+        left: initial;
+        right: 0;
+    }
+
+    .toggle.active::before {
+        color: #fff;
+    }
+
+    .main,
+    .main.active {
+        width: 100%;
+        left: 0;
+    }
+
+    .btn,
+    .details table,
+    .details-2 table {
+        margin-right: 20px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .modal-header {
+        font-size: 0.7rem;
+    }
+
+    .close {
+        font-size: 1.2rem;
+    }
+
+    form .data label,
+    form .data-area label {
+        font-size: 15px;
+    }
+
+    form .data input,
+    form .data-area textarea {
+        font-size: 14px;
+    }
+
+    .alert {
+        min-width: 60%;
+        padding: 5px 10px;
+    }
+
+    .alert .fa-check-circle {
+        left: 10px;
+        font-size: 80%;
+    }
+
+    .alert .msg {
+        margin: 5px;
+        padding: 0 15px;
+        font-size: 65%;
+        line-height: 2.5;
+    }
+
+    .alert .close-btn {
+        padding: 10px 9px;
+    }
+
+    .alert .close-btn .fas {
+        font-size: 65%;
+        line-height: 2.5;
+    }
+}
